@@ -61,4 +61,10 @@ public class Player {
 	public void addWinnings(int coins) {
 		this.coins += coins;
 	}
+
+	@Override
+	public String toString() {
+		return "Player [name=" + name + ", coins=" + coins + ", chosenCard=" + chosenCard + ", chosenOrientation="
+				+ chosenOrientation + "]";
+	}
 }
