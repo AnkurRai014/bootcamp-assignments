@@ -5,7 +5,7 @@ public class Cards {
 	private int rank;
 	private int suit;
 	private final static String[] cardsSuit = {"Clubs", "Spades", "Diamonds", "Hearts"};
-	private final static String[] cardsRank = {"Ace", "1", "2", "3", "4", "5", "6", "7", "8", "9", "Jack", "Queen", "King"};
+	private final static String[] cardsRank = {"Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"};
 	
 	public Cards() {
 		
