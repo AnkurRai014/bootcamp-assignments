@@ -1,0 +1,32 @@
+<div class="container" routerLink="/products">
+    <h2><strong>Product List</strong></h2>
+    <table class="table tabel-dark table-bordered">
+        <thead>
+            <tr>
+                <th scope="col" style="text-align: center;">Product ID</th>
+                <th scope="col" style="text-align: center;">Product Name</th>
+                <th scope="col" style="text-align: center;">Product Model Id</th>
+                <th scope="col" style="text-align: center;">Product Description</th>
+                <th scope="col" style="text-align: center;">Unit Price</th>
+                <th scope="col" style="text-align: center;">Image URL</th>
+                <th scope="col" style="text-align: center;">Units In Stock</th>
+                <th scope="col" style="text-align: center;">Date Created</th>
+                <th scope="col" style="text-align: center;">Last Updated</th>
+                <th scope="col" style="text-align: center;">Category ID</th>
+            </tr>
+        </thead>
+        <tbody style="text-align: center;">
+            <tr *ngFor="let tempProd of products">
+                <td>{{tempProd.prodId}}</td>
+                <td>{{tempProd.name}}</td>
+                <td>{{tempProd.sku}}</td>
+                <td>{{tempProd.description}}</td>
+                <td>{{tempProd.unitPrice}}</td>
+                <td>{{tempProd.imageURL}}</td>
+                <td>{{tempProd.unitsInStock}}</td>
+                <td>{{tempProd.dateCreated}}</td>
+                <td>{{tempProd.lastUpdated}}</td>
+                <td>{{tempProd.categoryId}}</td>
+            </tr>
+        </tbody>
+    </table>

@@ -1,0 +1,16 @@
+<div class="container">
+    <h2><strong>Category List</strong></h2>
+    <table class="table tabel-dark table-bordered">
+        <thead>
+            <tr>
+                <th scope="col" style="text-align: center;">Category ID</th>
+                <th scope="col" style="text-align: center;">Category Name</th>
+            </tr>
+        </thead>
+        <tbody style="text-align: center;">
+            <tr *ngFor="let tempCat of categories">
+                <td>{{tempCat.categoryId}}</td>
+                <td>{{tempCat.categoryName}}</td>
+            </tr>
+        </tbody>
+    </table>
