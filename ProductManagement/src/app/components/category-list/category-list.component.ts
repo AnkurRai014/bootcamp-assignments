@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Category } from 'src/app/common/category';
 import { ProductManagementServiceService } from 'src/app/services/product-management-service.service';
 
@@ -10,7 +11,7 @@ import { ProductManagementServiceService } from 'src/app/services/product-manage
 export class CategoryListComponent implements OnInit {
 
   categories : Category[]
-  constructor(private service: ProductManagementServiceService) { }
+  constructor(private service : ProductManagementServiceService, private route:Router) { }
 
   ngOnInit(): void {
     this.listOfCategories();

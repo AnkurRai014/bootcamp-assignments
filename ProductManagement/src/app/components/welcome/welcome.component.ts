@@ -14,6 +14,10 @@ export class WelcomeComponent implements OnInit {
     this.route.navigateByUrl("/products")
   }
 
+  showCategory(){
+    this.route.navigateByUrl("/categories")
+  }
+
   ngOnInit(): void {
   }
 

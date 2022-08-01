@@ -17,10 +17,6 @@ export class ProductListComponent implements OnInit {
     this.listOfProducts();
   }
 
-  // showProduct(){
-  //   this.route.navigateByUrl("/products")
-  // }
-
   listOfProducts(){
     this.service.getAllProduct().subscribe(data =>{
       console.log(data);
