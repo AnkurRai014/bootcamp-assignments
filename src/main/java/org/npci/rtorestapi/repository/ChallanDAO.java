@@ -12,7 +12,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 @CrossOrigin("http://localhost:4200/")
 public interface ChallanDAO extends JpaRepository<Challan, Long>{
 
-	List<Challan> findByPolicePersonelIdAndIsChallanDisputed(@RequestParam("policePersonalId") long policePersonalId, @RequestParam("isChallanDisputed") boolean isChallanDisputed);
-	List<Challan> findByVehiclePlateNumberAndIsChallanClosed(@RequestParam("vehiclePlateNumber") String vehiclePlateNumber, @RequestParam("isChallanClosed") boolean isChallanClosed);
-	
+	List<Challan> findByPolicePersonelIdAndChallanClosedAndChallanDisputed(@RequestParam("policePersonalId") long policePersonalId, @RequestParam("challanClosed") boolean challanClosed, @RequestParam("challanDisputed") boolean challanDisputed);
+	List<Challan> findByVehiclePlateNumberAndChallanClosedAndChallanDisputed(@RequestParam("vehiclePlateNumber") String vehiclePlateNumber, @RequestParam("challanClosed") boolean challanClosed, @RequestParam("challanDisputed") boolean challanDisputed);
+	List<Challan> findByVehiclePlateNumberAndChallanClosed(@RequestParam("vehiclePlateNumber") String vehiclePlateNumber, @RequestParam("challanClosed") boolean challanClosed);
+	List<Challan> findByPolicePersonelIdAndChallanClosed(@RequestParam("policePersonalId") long policePersonalId, @RequestParam("challanClosed") boolean challanClosed);
 }

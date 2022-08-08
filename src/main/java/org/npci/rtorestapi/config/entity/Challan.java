@@ -1,6 +1,7 @@
 package org.npci.rtorestapi.config.entity;
 
 import java.sql.Time;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -17,13 +18,13 @@ public class Challan {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
-	private long id;
+	private long challanId;
 
 	@Column(name = "challan_date")
 	private Date challanDate;
 
 	@Column(name = "challan_time")
-	private Time challanTime;
+	private String challanTime;
 
 	@Column(name = "challan_location")
 	private long pincode;
@@ -45,15 +46,18 @@ public class Challan {
 
 	@Column(name = "due_date")
 	private Date dueDate;
+	
+	@Column(name = "paid_date")
+	private Date paidDate;
 
 	@Column(name = "is_due_date_valid")
-	private boolean isDueDateValid;
+	private boolean dueDateValid;
 
 	@Column(name = "is_challan_closed")
-	private boolean isChallanClosed;
+	private boolean challanClosed;
 
 	@Column(name = "is_challan_disputed")
-	private boolean isChallanDisputed;
+	private boolean challanDisputed;
 
 	@Column(name = "dispute_message")
 	private String disputeMessage;
@@ -62,11 +66,12 @@ public class Challan {
 
 	}
 
-	public Challan(long id, Date challanDate, Time challanTime, long pincode, String imageProof, long policePersonelId,
-			String vehiclePlateNumber, String violations, int totalFine, Date dueDate, boolean isDueDateValid,
-			boolean isChallanClosed, boolean isChallanDisputed, String disputeMessage) {
+	public Challan(long challanId, Date challanDate, String challanTime, long pincode, String imageProof,
+			long policePersonelId, String vehiclePlateNumber, String violations, int totalFine, Date dueDate,
+			Date paidDate, boolean dueDateValid, boolean challanClosed, boolean challanDisputed,
+			String disputeMessage) {
 		super();
-		this.id = id;
+		this.challanId = challanId;
 		this.challanDate = challanDate;
 		this.challanTime = challanTime;
 		this.pincode = pincode;
@@ -76,18 +81,19 @@ public class Challan {
 		this.violations = violations;
 		this.totalFine = totalFine;
 		this.dueDate = dueDate;
-		this.isDueDateValid = isDueDateValid;
-		this.isChallanClosed = isChallanClosed;
-		this.isChallanDisputed = isChallanDisputed;
+		this.paidDate = paidDate;
+		this.dueDateValid = dueDateValid;
+		this.challanClosed = challanClosed;
+		this.challanDisputed = challanDisputed;
 		this.disputeMessage = disputeMessage;
 	}
 
-	public long getId() {
-		return id;
+	public long getChallanId() {
+		return challanId;
 	}
 
-	public void setId(long id) {
-		this.id = id;
+	public void setChallanId(long challanId) {
+		this.challanId = challanId;
 	}
 
 	public Date getChallanDate() {
@@ -98,11 +104,11 @@ public class Challan {
 		this.challanDate = challanDate;
 	}
 
-	public Time getChallanTime() {
+	public String getChallanTime() {
 		return challanTime;
 	}
 
-	public void setChallanTime(Time challanTime) {
+	public void setChallanTime(String challanTime) {
 		this.challanTime = challanTime;
 	}
 
@@ -162,28 +168,36 @@ public class Challan {
 		this.dueDate = dueDate;
 	}
 
-	public boolean isDueDateValid() {
-		return isDueDateValid;
+	public Date getPaidDate() {
+		return paidDate;
 	}
 
-	public void setDueDateValid(boolean isDueDateValid) {
-		this.isDueDateValid = isDueDateValid;
+	public void setPaidDate(Date paidDate) {
+		this.paidDate = paidDate;
+	}
+
+	public boolean isDueDateValid() {
+		return dueDateValid;
+	}
+
+	public void setDueDateValid(boolean dueDateValid) {
+		this.dueDateValid = dueDateValid;
 	}
 
 	public boolean isChallanClosed() {
-		return isChallanClosed;
+		return challanClosed;
 	}
 
-	public void setChallanClosed(boolean isChallanClosed) {
-		this.isChallanClosed = isChallanClosed;
+	public void setChallanClosed(boolean challanClosed) {
+		this.challanClosed = challanClosed;
 	}
 
 	public boolean isChallanDisputed() {
-		return isChallanDisputed;
+		return challanDisputed;
 	}
 
-	public void setChallanDisputed(boolean isChallanDisputed) {
-		this.isChallanDisputed = isChallanDisputed;
+	public void setChallanDisputed(boolean challanDisputed) {
+		this.challanDisputed = challanDisputed;
 	}
 
 	public String getDisputeMessage() {
@@ -196,12 +210,13 @@ public class Challan {
 
 	@Override
 	public String toString() {
-		return "Challan [id=" + id + ", challanDate=" + challanDate + ", challanTime=" + challanTime + ", pincode="
-				+ pincode + ", imageProof=" + imageProof + ", policePersonalId=" + policePersonelId
+		return "Challan [challanId=" + challanId + ", challanDate=" + challanDate + ", challanTime=" + challanTime
+				+ ", pincode=" + pincode + ", imageProof=" + imageProof + ", policePersonelId=" + policePersonelId
 				+ ", vehiclePlateNumber=" + vehiclePlateNumber + ", violations=" + violations + ", totalFine="
-				+ totalFine + ", dueDate=" + dueDate + ", isDueDateValid=" + isDueDateValid + ", isChallanClosed="
-				+ isChallanClosed + ", isChallanDisputed=" + isChallanDisputed + ", disputeMessage=" + disputeMessage
-				+ "]";
+				+ totalFine + ", dueDate=" + dueDate + ", paidDate=" + paidDate + ", dueDateValid=" + dueDateValid
+				+ ", challanClosed=" + challanClosed + ", challanDisputed=" + challanDisputed + ", disputeMessage="
+				+ disputeMessage + "]";
 	}
+	
 
 }
